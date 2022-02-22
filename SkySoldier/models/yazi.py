@@ -1,7 +1,7 @@
 from enum import unique
 from django.db import models
-from autoslug import AutoSlugField
 from django.contrib.auth.models import User
+from autoslug import AutoSlugField
 
 
 class YazilarModel(models.Model):
@@ -9,10 +9,10 @@ class YazilarModel(models.Model):
     icerik = models.TextField()
     olusturulma_tarihi=models.DateTimeField(auto_now_add=True)
     duzenlenme_tarihi = models.DateTimeField(auto_now=True)
-    slug= AutoSlugField(populate_from = "baslik", unique=True )
+    slug = AutoSlugField(populate_from = "baslik", unique=True )
     yazar = models.ForeignKey(User, related_name='yazilar',on_delete=models.CASCADE)
 
     class Meta:
         verbose_name="Yazi"
         verbose_name_plural="Yazilar"
-        db_name="Yazi"
+        db_table="Yazi"
