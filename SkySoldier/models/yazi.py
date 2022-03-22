@@ -7,6 +7,7 @@ from ckeditor.fields import RichTextField
 class YazilarModel(models.Model):
     baslik = models.CharField(max_length=100)
     icerik = RichTextField()
+    ozet = models.CharField(max_length=1000,default="")
     olusturulma_tarihi=models.DateTimeField(auto_now_add=True)
     duzenlenme_tarihi = models.DateTimeField(auto_now=True)
     slug = AutoSlugField(populate_from = "baslik", unique=True )
